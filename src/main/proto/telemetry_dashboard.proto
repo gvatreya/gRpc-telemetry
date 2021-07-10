@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "in.gvatreya.telemetry.dashboard";
+option java_outer_classname = "TelemetryDashboardProto";
+
+package telemetrydashboard;
+
+import "google/protobuf/timestamp.proto";
+
+service TelemetryDashboard {
+
+  // Unary RPC that fetches the telemetry given a TimePeriod.
+  //
+  // A Telemetry is returned if it exists at the given TimePeriod,
+  // null otherwise.
+  //
+  // Note that the `TimePeriod.start` is considered as the time at
+  // which the metric is requested for. `TimePeriod.end` is ignored.
+  rpc GetTelemetryAtSpecificTime(TimePeriod) returns (Telemetry) {}
+}
+
+/*
+  TimePeriod captures the start and end timestamps, that helps define
+  the range over which an instrument's reading can be queried.
+
+  Note that certain implementations may ignore the end time and use
+  only the start time. See GetTelemetryAtSpecificTime.
+ */
+message TimePeriod {
+  google.protobuf.Timestamp start = 1;
+  google.protobuf.Timestamp end = 2;
+}
+
+/*
+  Telemetry encapsulates the value/reading of an instrument at the timestamp.
+ */
+message Telemetry {
+  // Telemetry timestamp
+  google.protobuf.Timestamp timestamp = 1;
+
+  // Telemetry value at the given time
+  float value = 2;
+}
+
+/*
+  This acts as an in-memory database for telemetries parsed from file.
+  Must be removed when real database is used.
+ */
+message TelemetryDatabase {
+  repeated Telemetry telemetry = 1;
+}
