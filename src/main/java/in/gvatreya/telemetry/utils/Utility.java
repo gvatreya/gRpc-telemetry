@@ -19,9 +19,10 @@ import java.util.List;
 public class Utility {
 
     // FIXME: Environment/Properties file
-    final static String CSV_FILENAME = "meterusage.1625583807.csv";
-    final static String[] CSV_HEADERS = {"time", "meterusage"};
-    final static String DEFAULT_TIMESTAMP_FORMAT = "yyyy-MM-dd' 'HH:mm:ss";
+    public final static String CSV_FILENAME = "meterusage.1625583807.csv";
+    public final static String[] CSV_HEADERS = {"time", "meterusage"};
+    // FIXME: Can move to constants file
+    public final static String DEFAULT_TIMESTAMP_FORMAT = "yyyy-MM-dd' 'HH:mm:ss";
 
     /**
      * Gets the default features file from classpath.

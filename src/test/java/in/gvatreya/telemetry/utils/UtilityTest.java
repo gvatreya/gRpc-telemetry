@@ -4,13 +4,12 @@ import com.google.protobuf.Timestamp;
 import in.gvatreya.telemetry.dashboard.Telemetry;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.net.URL;
-import java.text.ParseException;
 import java.util.List;
 import java.util.Objects;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class UtilityTest {
 
