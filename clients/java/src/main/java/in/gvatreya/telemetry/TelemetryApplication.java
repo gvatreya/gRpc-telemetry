@@ -1,4 +1,4 @@
-package com.example.telemetry;
+package in.gvatreya.telemetry;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
