@@ -1,5 +1,6 @@
-package in.gvatreya.telemetry.dashboard;
+package in.gvatreya.telemetry;
 
+import in.gvatreya.telemetry.dashboard.Telemetry;
 import in.gvatreya.telemetry.service.TelemetryDashboardService;
 import in.gvatreya.telemetry.utils.Utility;
 import io.grpc.Server;

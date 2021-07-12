@@ -3,7 +3,9 @@ package in.gvatreya.telemetry.dto;
 import com.google.protobuf.Timestamp;
 import in.gvatreya.telemetry.dashboard.Telemetry;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 //FIXME: Is there a better way using ProtoBuf's inbuilt methods? R&D required
 // One way to use https://github.com/yidongnan/grpc-spring-boot-starter
@@ -45,6 +47,14 @@ public class TelemetryDto {
         telemetryDto.setTimestamp(date);
         telemetryDto.setValue(telemetry.getValue());
         return telemetryDto;
+    }
+
+    public static List<TelemetryDto> fromProto(final List<Telemetry> telemetries) {
+        final List<TelemetryDto> dtos = new ArrayList<>(telemetries.size());
+        for (Telemetry telemetry : telemetries) {
+            dtos.add(fromProto(telemetry));
+        }
+        return dtos;
     }
 
 }

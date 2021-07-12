@@ -18,6 +18,13 @@ service TelemetryDashboard {
   // Note that the `TimePeriod.start` is considered as the time at
   // which the metric is requested for. `TimePeriod.end` is ignored.
   rpc GetTelemetryAtSpecificTime(TimePeriod) returns (Telemetry) {}
+
+  /*
+   Service that fetches all the telemetries in the TimePeriod range
+   between TimePeriod.start and TimePeriod.end.
+   If no telemetries are available, an empty stream is returned
+   */
+  rpc GetTelemetriesInRange(TimePeriod) returns (stream Telemetry) {}
 }
 
 /*
