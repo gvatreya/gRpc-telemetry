@@ -30,8 +30,6 @@ public class TelemetryController {
 
         try {
             final Telemetry one = client.findOne(timestampAsString);
-
-            LOG.info("RETURNED ONE1: " + one);
             if(one.isInitialized()) {
                 return new ResponseEntity<>(TelemetryDto.fromProto(one), HttpStatus.OK);
             } else {
